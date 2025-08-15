@@ -1,4 +1,5 @@
-from langchain_ollama import ChatOllama
+from utils.azure_openai import chat
+#from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
@@ -25,9 +26,9 @@ escalation_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-escalation_check_model = ChatOllama(model="deepseek-r1:14b", temperature=0)
+#escalation_check_model = ChatOllama(model="deepseek-r1:14b", temperature=0)
 
 ESCALATION_CHECK_CHAIN = (
     escalation_prompt
-    | escalation_check_model.with_structured_output(EscalationCheck)
+    | chat.with_structured_output(EscalationCheck)
 )

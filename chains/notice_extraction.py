@@ -1,6 +1,7 @@
 from datetime import datetime, date
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_ollama import ChatOllama
+from utils.azure_openai import chat
+#from langchain_ollama import ChatOllama
 from pydantic import BaseModel, Field, computed_field
 
 class NoticeEmailExtract(BaseModel):
@@ -115,9 +116,9 @@ info_parse_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-notice_parser_model = ChatOllama(model="deepseek-r1:14b", temperature=0)
+#notice_parser_model = ChatOllama(model="deepseek-r1:14b", temperature=0)
 
 NOTICE_PARSER_CHAIN = (
     info_parse_prompt
-    | notice_parser_model.with_structured_output(NoticeEmailExtract)
+    | chat.with_structured_output(NoticeEmailExtract)
 )

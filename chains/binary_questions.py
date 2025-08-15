@@ -1,4 +1,5 @@
-from langchain_ollama import ChatOllama
+from utils.azure_openai import chat
+#from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 
@@ -22,9 +23,9 @@ binary_question_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-binary_question_model = ChatOllama(model="deepseek-r1:14b", temperature=0)
+#binary_question_model = ChatOllama(model="deepseek-r1:14b", temperature=0)
 
 BINARY_QUESTION_CHAIN = (
     binary_question_prompt
-    | binary_question_model.with_structured_output(BinaryAnswer)
+    | chat.with_structured_output(BinaryAnswer)
 )

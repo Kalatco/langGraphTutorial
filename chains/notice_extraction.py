@@ -115,7 +115,7 @@ info_parse_prompt = ChatPromptTemplate.from_messages(
     ]
 )
 
-notice_parser_model = ChatOllama(model="deepseek-r1", temperature=0)
+notice_parser_model = ChatOllama(model="deepseek-r1:14b", temperature=0)
 
 NOTICE_PARSER_CHAIN = (
     info_parse_prompt

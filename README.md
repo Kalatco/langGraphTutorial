@@ -19,13 +19,11 @@ This is a minimal Python project setup with a `requirements` folder containing t
 2. **Pull required models** (run in terminal after installing Ollama):
    ```powershell
    ollama pull deepseek-r1:14b
-   ollama pull llama3.1:70b
    ```
 
    - [deepseek-r1:14b](https://ollama.com/library/deepseek-r1) (9.0 GB): Performs better than the 5.2 GB model for complex questions.
-   - [llama3.1:70b](https://ollama.com/library/llama3.1) (42 GB): Used for the email agent in this project.
 
-   Note: The llama3.1:70b appears to work well for Tools, but it is incredibly slow due to its size. I recommend using OpenAI unless another model is found.
+   Note: Azure OpenAI was used for the email agent because other Ollama models did not provide adequate results for this use case.
 
 3. **Create a virtual environment** (optional but recommended):
    ```powershell

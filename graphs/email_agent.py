@@ -1,9 +1,10 @@
 import time
+from utils.azure_openai import chat
 from chains.notice_extraction import NoticeEmailExtract
 from graphs.notice_extraction import NOTICE_EXTRACTION_GRAPH
 from langchain_core.messages import AIMessage
 from langchain_core.tools import tool
-from langchain_ollama import ChatOllama
+from langchain.chains import LLMChain
 from langgraph.graph import END, START, MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode
 from utils.logging_config import LOGGER
@@ -99,7 +100,8 @@ tools = [
     extract_notice_data,
 ]
 tool_node = ToolNode(tools)
-EMAIL_AGENT_MODEL = ChatOllama(model="llama3.1:70b", temperature=0).bind_tools(
+
+EMAIL_AGENT_MODEL = chat.bind_tools(
     tools
 )
 

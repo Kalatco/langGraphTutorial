@@ -2,4 +2,5 @@ langgraph
 langchain
 langchain-ollama
 langchain-openai
-langchain-community
+langchain-openai
+python-dotenv

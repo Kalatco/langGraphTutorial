@@ -1,9 +1,14 @@
+# Load environment variables from .env
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # from chains.notice_extraction import NOTICE_PARSER_CHAIN
 # from chains.escalation_check import ESCALATION_CHECK_CHAIN
 
 # from graphs.notice_extraction import NOTICE_EXTRACTION_GRAPH
-from example_emails import EMAILS
 
+from example_emails import EMAILS
 from graphs.email_agent import email_agent_graph
 
 # Example usage:
